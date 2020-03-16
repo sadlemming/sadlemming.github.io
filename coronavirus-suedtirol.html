@@ -44,7 +44,7 @@
 
         // save the data in arrays
         var dates = provinceData.map(function(item) {
-            return item.data.toLocaleString();
+            return item.data.toLocaleDateString();
         });
         var hospitalized = provinceData.map(function(item) {
             return item.totale_ospedalizzati;
