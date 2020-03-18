@@ -24,9 +24,7 @@
     <div class="canvas">
       <canvas id="canvas"></canvas>
     </div>
-    <footer>
-      <p>Quelle / Fonte / Source: <a href="http://www.protezionecivile.gov.it">www.protezionecivile.gov.it</a></p>
-    </footer>
+    <footer></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script>
@@ -122,6 +120,9 @@
             // Configuration options go here
             options: {}
         });
+
+        // add source to footer
+        $("footer").append('<p>Quelle / Fonte / Source: <a href="http://www.protezionecivile.gov.it">www.protezionecivile.gov.it</a></p>');
     });
     </script>
   </body>
