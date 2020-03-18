@@ -3,9 +3,11 @@
   <head>
     <title>Südtirol - Coronavirus (COVID-19)</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spinkit/1.2.5/spinkit.min.css" />
     <style>
       .canvas {
         width: 85%;
+        position: relative;
         margin: auto;
       }
       h1 {
@@ -17,10 +19,25 @@
         font-size: 75%;
         font-family: Arial, Helvetica, sans-serif;
       }
+      #loader {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        z-index: 1000;
+        margin-top: -20px;
+        margin-left: -25px;
+      }
     </style>
   </head>
   <body>
     <h1>Südtirol - Coronavirus (COVID-19)</h1>
+    <div id="loader" class="sk-wave">
+      <div class="sk-rect sk-rect1"></div>
+      <div class="sk-rect sk-rect2"></div>
+      <div class="sk-rect sk-rect3"></div>
+      <div class="sk-rect sk-rect4"></div>
+      <div class="sk-rect sk-rect5"></div>
+    </div>
     <div class="canvas">
       <canvas id="canvas"></canvas>
     </div>
@@ -67,6 +84,10 @@
         var deaths = provinceData.map(function(item) {
             return item.deceduti;
         });
+
+        // hide loading animation
+        $("#loader").hide();
+
         var ctx = document.getElementById('canvas').getContext('2d');
         var chart = new Chart(ctx, {
             // The type of chart we want to create
