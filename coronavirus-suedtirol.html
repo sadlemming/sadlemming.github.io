@@ -50,11 +50,16 @@
         var province = "P.A. Bolzano";
         var provinceData = [];
 
+        // the first date on the chart
+        var startDate = new Date(2020, 2, 1);
+
         for (var i = 0; i < json.length; i++) {
             var dataPoint = json[i];
             if (dataPoint.denominazione_regione === province) {
                 dataPoint.data = new Date(dataPoint.data); // convert date string to date
-                provinceData.push(dataPoint);
+                if (dataPoint.data >= startDate) {
+                    provinceData.push(dataPoint);
+                }
             }
         }
 
